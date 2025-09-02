@@ -14,6 +14,20 @@ public class P004_구간합구하기2_BOJ11660 {
         int[][] orgMap = new int[N][N];
         int[][] sumMap = new int[N][N];
 
+        for (int i = 0; i < N; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < N; j++) {
+                orgMap[i][j] = Integer.parseInt(st.nextToken());
+                sumMap[i][j] = j == 0 ? orgMap[i][j] : sumMap[i][j - 1] + orgMap[i][j];
+            }
+        }
 
+        for (int i = 0; i < M; i++) {
+            st = new StringTokenizer(br.readLine());
+            int x1 = Integer.parseInt(st.nextToken());
+            int y1 = Integer.parseInt(st.nextToken());
+            int x2 = Integer.parseInt(st.nextToken());
+            int y2 = Integer.parseInt(st.nextToken());
+        }
     }
 }
