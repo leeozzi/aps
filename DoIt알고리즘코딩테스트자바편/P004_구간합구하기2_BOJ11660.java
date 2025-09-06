@@ -24,10 +24,25 @@ public class P004_구간합구하기2_BOJ11660 {
 
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
-            int x1 = Integer.parseInt(st.nextToken());
-            int y1 = Integer.parseInt(st.nextToken());
-            int x2 = Integer.parseInt(st.nextToken());
-            int y2 = Integer.parseInt(st.nextToken());
+            int x1 = Integer.parseInt(st.nextToken()) - 1;
+            int y1 = Integer.parseInt(st.nextToken()) - 1;
+            int x2 = Integer.parseInt(st.nextToken()) - 1;
+            int y2 = Integer.parseInt(st.nextToken()) - 1;
+
+            int sum = 0;
+            for (int j = x1; j <= x2; j++) {
+                if (y1 == y2) {
+                    sum += orgMap[j][y1];
+                } else {
+                    if(y1 != 0) {
+                        sum += (sumMap[j][y2] - sumMap[j][y1 - 1]);
+                    } else {
+                        sum += (sumMap[j][y2]);
+                    }
+                }
+            }
+
+            System.out.println(sum);
         }
     }
 }
